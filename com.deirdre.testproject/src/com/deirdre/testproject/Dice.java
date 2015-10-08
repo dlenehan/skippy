@@ -1,6 +1,9 @@
 package com.deirdre.testproject;
 
 import java.util.Enumeration;
+/* 08/10/15 Author: dlenehan
+ * Adding some comment lines to Dice class
+ */
 import java.util.Hashtable;
 
 public class Dice {
