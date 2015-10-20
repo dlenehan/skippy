@@ -1,14 +1,10 @@
 package com.deirdre.testproject;
 
 import java.util.Enumeration;
-/* 08/10/15 Author: dlenehan
- * Adding some comment lines to Dice class
- */
 import java.util.Hashtable;
 
-public class Dice {
 
-	private int faceValue;
+public class Dice {
 	private int count;
 	private int total;
 	private final int MAX = 4;
@@ -19,7 +15,6 @@ public class Dice {
 	Enumeration<String> directions;
 
 	public Dice() {
-		faceValue = -1;
 		count = 0;
 		total = 0;
 		statistics = new Hashtable<String, Integer>();
@@ -36,10 +31,7 @@ public class Dice {
 
 	}
 
-	public int getFaceValue() {
-		return faceValue;
-	}
-
+	
 	public Hashtable<String, Double> getPerc() {
 		return percentStatistics;
 	}
@@ -48,24 +40,30 @@ public class Dice {
 		return statistics;
 	}
 
-	public int roll() {
-		faceValue = (int) (Math.random() * MAX) + 1;
+
+	
+	
+    
+	
+	public Direction roll() {
+		Direction direc = Direction.randomDirection();
+		System.out.println("Direction rolled is: " + direc);
 		// Store count of throws in each direction so far.
 
-		switch (faceValue) {
-		case 1:
+		switch (direc) {
+		case NORTH:
 			total = ((Integer) statistics.get("North")).intValue();
 			statistics.put("North", new Integer(total + 1));
 			break;
-		case 2:
+		case SOUTH:
 			total = ((Integer) statistics.get("South")).intValue();
 			statistics.put("South", new Integer(total + 1));
 			break;
-		case 3:
+		case EAST:
 			total = ((Integer) statistics.get("East")).intValue();
 			statistics.put("East", new Integer(total + 1));
 			break;
-		case 4:
+		case WEST:
 			total = ((Integer) statistics.get("West")).intValue();
 			statistics.put("West", new Integer(total + 1));
 			break;
@@ -85,14 +83,10 @@ public class Dice {
 		System.out.println();
 
 
-		return faceValue;
+		return direc;
 	}
 
-	public void setFaceValue(int value) {
-		faceValue = value;
-	}
+	
+
 
 }
-
-
-
