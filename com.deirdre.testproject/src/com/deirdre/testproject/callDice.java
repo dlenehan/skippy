@@ -30,8 +30,8 @@ public class callDice {
 			else {System.out.println("Outside the boundary, roll again!");}
 		}
 			
-		Hashtable<String, Integer> hm = dice.getStats();
-		Hashtable<String, Double> prcnt = dice.getPerc();
+		Hashtable<Direction, Integer> hm = dice.getStats();
+		Hashtable<Direction, Double> prcnt = dice.getPerc();
 		System.out.println("Total number of hops: " + hm);
 		System.out.println("Percentage hops in each direction: " + prcnt);
 	}

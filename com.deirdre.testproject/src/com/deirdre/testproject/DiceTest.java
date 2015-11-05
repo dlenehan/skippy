@@ -1,7 +1,5 @@
 package com.deirdre.testproject;
 
-import static org.junit.Assert.*;
-
 import java.util.Collection;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -36,15 +34,34 @@ public class DiceTest<E> {
 			dice.roll();
 		}
 		Hashtable<Direction, Integer> ht = dice.getStats();
-		Collection c = ht.values();
+		Collection<?> c = ht.values();
 		
 		int sum = 0;
 		
-		Iterator<E> it = c.iterator();
+		Iterator<?> it = c.iterator();
 		while (it.hasNext()){
 			sum += (int) it.next();
 		}
 		Assert.assertTrue(sum == 1000);
+	
 	}
-
+	
+	@Test
+	public void testPerc() {
+		for (int i = 0; i < 10; i++){
+			dice.roll();
+		}
+		Hashtable<Direction, Double> pc = dice.getPerc();
+		Collection<?> col = pc.values();
+		
+        double total = 0;
+		
+		Iterator<?> iter = col.iterator();
+		while (iter.hasNext()){
+			total += (double) iter.next();
+		
+		}
+		System.out.println("total: " + total);
+		Assert.assertTrue(total == 100.0);
+}
 }
